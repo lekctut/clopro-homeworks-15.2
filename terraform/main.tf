@@ -59,7 +59,7 @@ write_files:
     content: |
       #!/bin/bash
       sudo chown -R ubuntu:www-data /var/www/html
-      echo "https://storage.yandexcloud.net/${var.bucket_name}/${var.file_name}" > /var/www/html/index.html
+      echo '<html><head><title>abetko</title></head><body><h1>Testing Network Load Balancer</h1><p>hostname: '$(hostname)'</p><img src="https://storage.yandexcloud.net/${var.bucket_name}/${var.file_name}" alt="Внешняя картинка"></body></html>' > /var/www/html/index.html
     defer: true
 runcmd:
   - ["/usr/local/etc/startup.sh"]
